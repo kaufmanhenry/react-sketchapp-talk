@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: 'white',
     color: '#111',
-    width: 200,
+    width: 800,
     margin: 20,
     borderRadius: 4
   },
@@ -14,33 +14,34 @@ const styles = StyleSheet.create({
     padding: 20
   },
   profileImage: {
-    width: '100%',
+    width: 200,
     height: 200
   },
   header: {
     fontSize: 20,
-    fontWeight: 700,
-    marginBottom: 8
+    fontWeight: 700
   },
-  subheader: {
-    color: '#aaa'
+  photoContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 });
 
-const DogCard = ({ name, age, photo }) => (
+const DogCard = ({ name, photos }) => (
   <View style={styles.wrapper}>
-    <Image style={styles.profileImage} source={photo}/>
+    {photos && <View style={styles.photoContainer}>
+      {photos.map(photo => <Image style={styles.profileImage} source={photo}/>)}
+    </View>}
     <View style={styles.container}>
       <Text style={styles.header}>{name}</Text>
-      <Text style={styles.subheader}>{age} years old</Text>
     </View>
   </View>
 );
 
 DogCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  age: PropTypes.number.isRequired,
-  photo: PropTypes.string.isRequired
+  breed: PropTypes.string.isRequired,
+  photos: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default DogCard;
