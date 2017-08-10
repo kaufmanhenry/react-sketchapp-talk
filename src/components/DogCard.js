@@ -44,7 +44,7 @@ const DogCard = ({ name, photos }) => (
 );
 
 DogCard.propTypes = {
-  breed: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   photos: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
