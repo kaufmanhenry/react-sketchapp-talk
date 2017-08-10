@@ -1,16 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { render, Artboard, Text } from 'react-sketchapp';
+import { render, Artboard, StyleSheet } from 'react-sketchapp';
 
-const Document = ({ colors }) => (
+import DogCard from './components/DogCard';
+
+const styles = StyleSheet.create({
+  width: 240,
+  height: 400,
+  backgroundColor: '#fafafa'
+});
+
+const Document = () => (
   <Artboard
     name="dogs!"
-    style={{
-      width: 400,
-      height: 400
-    }}
+    style={styles}
   >
-    <Text>Hello!</Text>
+    <DogCard
+      name="Billy"
+      age={3}
+      photo="https://dog.ceo/api/img/terrier-patterdale/320px-05078045_Patterdale_Terrier.jpg"
+    />
   </Artboard>
 );
 
